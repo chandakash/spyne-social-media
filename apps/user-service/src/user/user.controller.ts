@@ -1,10 +1,16 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, Query } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from '@/database/src';
 
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Get('search')
+  async searchUsers(@Query('name') name: string) {
+    console.log(name);
+    return this.userService.searchUsers(name);
+  }
 
   @Post()
   create(@Body() user: User) {

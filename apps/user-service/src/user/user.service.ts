@@ -34,4 +34,12 @@ export class UserService {
   remove(id: number): Promise<void> {
     return this.userRepository.delete(id).then(() => {"user removed Successfully"});
   }
+
+  async searchUsers(name: string)  {
+    console.log({name})
+    return this.userRepository
+    .createQueryBuilder('users')
+    .where('users.name ILIKE :name', { name: `%${name}%` })
+    .getMany();
+  }
 }
