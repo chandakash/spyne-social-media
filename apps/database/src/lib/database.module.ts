@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { User } from './entities/user.entity';
+import { Discussion } from './entities';
 
 @Module({
   imports: [
@@ -20,12 +22,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         ssl: {
           rejectUnauthorized: true,
         },
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        // entities: {User},
+        // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        entities: [User, Discussion],
         synchronize: true,
       }),
       inject: [ConfigService],
     }),
+    // TypeOrmModule.forFeature([User, Discussion])
   ],
 })
 export class DatabaseModule {}

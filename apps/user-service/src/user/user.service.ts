@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import {User} from "@spyne-social-media/database";
 
 @Injectable()
 export class UserService {
@@ -28,10 +28,10 @@ export class UserService {
   }
 
   update(id: number, user: Partial<User>): Promise<void> {
-    return this.userRepository.update(id, user).then(() => {"updated user"});
+    return this.userRepository.update(id, user).then(() => {"user updated Successfully"});
   }
 
   remove(id: number): Promise<void> {
-    return this.userRepository.delete(id).then(() => {"removed user"});
+    return this.userRepository.delete(id).then(() => {"user removed Successfully"});
   }
 }

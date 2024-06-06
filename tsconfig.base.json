@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@spyne-social-media/database": ["apps/database/src/index.ts"]
+      "@/*": ["./apps/*"],
+      "@spyne-social-media/database": ["apps/database/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
