@@ -1,0 +1,24 @@
+{
+  "name": "discussion-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/discussion-service/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "discussion-service:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "discussion-service:build:development"
+        },
+        "production": {
+          "buildTarget": "discussion-service:build:production"
+        }
+      }
+    }
+  }
+}

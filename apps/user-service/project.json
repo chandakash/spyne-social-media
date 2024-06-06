@@ -1,7 +1,7 @@
 {
-  "name": "spyne-social-media",
+  "name": "user-service",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/spyne-social-media/src",
+  "sourceRoot": "apps/user-service/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -9,14 +9,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "spyne-social-media:build"
+        "buildTarget": "user-service:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "spyne-social-media:build:development"
+          "buildTarget": "user-service:build:development"
         },
         "production": {
-          "buildTarget": "spyne-social-media:build:production"
+          "buildTarget": "user-service:build:production"
         }
       }
     }

@@ -34,7 +34,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/spyne-social-media-e2e/**/*"]
+      "exclude": [
+        "apps/spyne-social-media-e2e/**/*",
+        "apps/user-service-e2e/**/*",
+        "apps/discussion-service-e2e/**/*"
+      ]
     }
   ],
   "nxCloudAccessToken": "MzBhMDIzZTctMDk0ZS00MDNiLTgwMzMtN2NhODJhMjk0MzlifHJlYWQtd3JpdGU="
