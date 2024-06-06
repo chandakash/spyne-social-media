@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { User } from './entities/user.entity';
-import { Discussion } from './entities';
+import { Discussion, Follow } from './entities';
 
 @Module({
   imports: [
@@ -23,7 +23,7 @@ import { Discussion } from './entities';
           rejectUnauthorized: true,
         },
         // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        entities: [User, Discussion],
+        entities: [User, Discussion, Follow],
         synchronize: true,
       }),
       inject: [ConfigService],

@@ -11,6 +11,7 @@ export class FollowService {
   ) {}
 
   async follow(follower_id: number, followed_id: number): Promise<void> {
+    console.log({followed_id, follower_id});
     const follow = new Follow();
     follow.follower_id = follower_id;
     follow.followed_id = followed_id;

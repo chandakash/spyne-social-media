@@ -32,11 +32,11 @@ export class User {
   @UpdateDateColumn()
   updated_at!: Date;
 
-  @OneToMany(() => Follow, (follow) => follow.follower)
-  followers: Follow[] = [];
+  @OneToMany(() => Follow, follow => follow.follower)
+  followers!: Follow[];
 
-  @OneToMany(() => Follow, (follow) => follow.followed)
-  following: Follow[] = [];
+  @OneToMany(() => Follow, follow => follow.followed)
+  following!: Follow[];
 
   async setPassword(password: string) {
     const salt = await bcrypt.genSalt();
