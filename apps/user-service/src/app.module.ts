@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/user.entity';
+// import { DatabaseModule } from '@spyne-social-media/database';
+import { FollowModule } from './follow/follow.module';
+import { UserModule } from './user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -20,12 +23,18 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         ssl: {
           rejectUnauthorized: true,
         },
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        // entities: {User},
+        // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        entities: [User],
         synchronize: true,
       }),
       inject: [ConfigService],
     }),
+    UserModule,
+    FollowModule
   ],
+    controllers: [],
+  providers: [],
 })
-export class DatabaseModule {}
+
+export class AppModule {}
+
